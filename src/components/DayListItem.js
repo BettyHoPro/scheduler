@@ -1,7 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 import "components/DayListItem.scss";
-// import { action } from "@storybook/addon-actions";
+import { action } from "@storybook/addon-actions";
 
 export default function DayListItem(props) {
   let dayClass = classnames("day-list__item", {
