@@ -15,6 +15,7 @@ import Header from "components/Appointment/Header";
 import Empty from "components/Appointment/Empty";
 import Show from "components/Appointment/Show";
 import Confirm from "components/Appointment/Confirm";
+import Status from "components/Appointment/Status";
 
 // ----- BTN ----//
 storiesOf("Button", module)
@@ -162,4 +163,5 @@ storiesOf("Appointment", module)
      onCancel={action("onCancel")}
      onConfirm={action("onConfirm")}
      />
-   ));
+   ))
+   .add("Status", () => <Status message="Deleting" />);
