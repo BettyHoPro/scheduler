@@ -2,7 +2,19 @@ import React, { useState } from "react";
 import InterviewerList from "components/InterviewerList";
 import Button from "components/Button";
 
+
 export default function From(props) {
+  const [name, setName] = useState(props.name || "");
+  const [interviewer, setInterviewer] = useState(props.interviewer || null);
+
+  const reset = () => {
+    setName("");
+    setInterviewer(null);
+  }
+  const cancel = () => {
+    reset();
+    props.onCancel();
+  }
 
   return (
     <main className="appointment__card appointment__card--create">
@@ -11,8 +23,11 @@ export default function From(props) {
           <input
             className="appointment__create-input text--semi-bold"
             name="name"
+            value={name}
             type="text"
             placeholder="Enter Student Name"
+            onSubmit={event => event.preventDefault()}
+            onChange={event => setName(event.target.value)}
             /*
           This must be a controlled component
         */
@@ -20,13 +35,13 @@ export default function From(props) {
         </form>
         <InterviewerList
           interviewers={props.interviewers}
-          value={props.interviewer && props.interviewer.id}
-          onChange={props.setInterview}
+          value={interviewer}
+          onChange={setInterviewer}
         />
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button danger onClick={props.onCancel}>Cancel</Button>
+          <Button danger onClick={cancel}>Cancel</Button>
           <Button confirm onClick={props.onSave}>Save</Button>
         </section>
       </section>
