@@ -2,8 +2,6 @@ import React from "react";
 // import InterviewerList from "../components/InterviewerList";
 
 export default function Show(props) {
-  console.log("Show", props);
-  // const interviewerList = props.interviewers.map((interviewer) => {
   return (
     <main className="appointment__card appointment__card--show">
       <section className="appointment__card-left">
