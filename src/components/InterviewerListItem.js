@@ -1,7 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 import "components/InterviewerListItem.scss";
-import { action } from "@storybook/addon-actions";
+// import { action } from "@storybook/addon-actions";
 
 export default function InterviewerListItem(props) {
   let interviewerClass = classnames("interviewers__item", {
