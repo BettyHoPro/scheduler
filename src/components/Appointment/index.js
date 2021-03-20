@@ -23,15 +23,14 @@ export default function Appointment(props) {
   );
   
   function save(name, interviewer) {
-    // if(!name) {
-    //   return console.log("Please fill out your name!");
-    // }
-    const interview = {
-      student: name,
-      interviewer
-    };
-    transition(SAVING);
-    props.bookInterview(props.id, interview).then(() => transition(SHOW));
+    if (name && interviewer) {
+      const interview = {
+        student: name,
+        interviewer
+      };
+      transition(SAVING);
+      props.bookInterview(props.id, interview).then(() => transition(SHOW));
+    }
   }
 
   function deleting(name, interviewer) {
