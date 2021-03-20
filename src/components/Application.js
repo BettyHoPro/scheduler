@@ -9,7 +9,7 @@ import {
   getInterview,
   getInterviewersForDay,
 } from "../helpers/selectors";
-import useVisualMode from "../hooks/useVisualMode";
+
 
 // const appointments = [
 //   {
@@ -79,6 +79,16 @@ export default function Application(props) {
       .then(() => setState({ ...state, appointments }));
   }
 
+  function cancelInterview(id, interview) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: null,
+    };
+    return axios
+      .delete(`/api/appointments/${id}`, { interview })
+      .then(() => setState({ ...state, appointment }));
+  }
+
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const dailyInterviewers = getInterviewersForDay(state, state.day);
   const setDay = (day) => setState((prev) => ({ ...prev, day }));
@@ -102,6 +112,7 @@ export default function Application(props) {
 
     return (
       <Appointment
+        cancelInterview={cancelInterview}
         bookInterview={bookInterview}
         key={appointment.id}
         id={appointment.id}
