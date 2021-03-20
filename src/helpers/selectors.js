@@ -24,17 +24,15 @@ export function  getInterview(state, interview) {
 }
 
 export function getInterviewersForDay(state, day) {
-  // const copyState = {...state};
-  //get the selected day appointments' ids
-  const { days, appointments } = state;
+  const { days, interviewers } = state;
   if (days.length === 0) return [];
 
   const checkDayExist = days.filter((dayX) => dayX.name === day);
   if (checkDayExist.length > 0) {
-    const selectedDayAppoints = checkDayExist[0].appointments;
-    return selectedDayAppoints.length > 0
-      ? selectedDayAppoints.map((appointID) => appointments[appointID])
-      : selectedDayAppoints;
+    const selectedDayInterviewers = checkDayExist[0].interviewers;
+    return selectedDayInterviewers.length > 0
+      ? selectedDayInterviewers.map((interviewerID) => interviewers[interviewerID])
+      : selectedDayInterviewers;
   }
   return [];
 }
