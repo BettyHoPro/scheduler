@@ -4,9 +4,9 @@ export function getAppointmentsForDay(state, day) {
   const { days, appointments } = state;
   if (days.length === 0) return [];
 
-  const checkDayExsit = days.filter((dayX) => dayX.name === day);
-  if (checkDayExsit.length > 0) {
-    const selectedDayAppoints = checkDayExsit[0].appointments;
+  const checkDayExist = days.filter((dayX) => dayX.name === day);
+  if (checkDayExist.length > 0) {
+    const selectedDayAppoints = checkDayExist[0].appointments;
     return selectedDayAppoints.length > 0
       ? selectedDayAppoints.map((appointID) => appointments[appointID])
       : selectedDayAppoints;
