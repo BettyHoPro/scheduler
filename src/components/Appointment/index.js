@@ -9,7 +9,6 @@ import Form from "components/Appointment/Form";
 import Status from "components/Appointment/Status";
 import Confirm from "components/Appointment/Confirm";
 import Error from "components/Appointment/Error";
-// import getInterviewersForDay from "../helpers/selectors";
 
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";

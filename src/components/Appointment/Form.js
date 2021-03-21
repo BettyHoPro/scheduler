@@ -28,9 +28,6 @@ export default function From(props) {
             placeholder="Enter Student Name"
             onSubmit={event => event.preventDefault()}
             onChange={event => setName(event.target.value)}
-            /*
-          This must be a controlled component
-        */
           />
         </form>
         <InterviewerList
