@@ -28,6 +28,7 @@ export default function From(props) {
             placeholder="Enter Student Name"
             onSubmit={event => event.preventDefault()}
             onChange={event => setName(event.target.value)}
+            data-testid="student-name-input"
           />
         </form>
         <InterviewerList
