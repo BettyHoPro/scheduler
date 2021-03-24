@@ -11,7 +11,6 @@ import {
   getByAltText,
   getByPlaceholderText,
   toBeInTheDocument,
-  // getAllByTestId,
   queryByText,
   queryByAltText,
 } from "@testing-library/react";
@@ -62,7 +61,7 @@ describe("Application", () => {
     const day = getAllByTestId(container, "day").find((day) =>
       queryByText(day, "Monday")
     );
-    // expect(getByText(day, /no spots remaining/i)).toBeInTheDocument();
+    expect(getByText(day, "3 spots remaining")).toBeInTheDocument();
   });
 
   // test 2
@@ -95,16 +94,36 @@ describe("Application", () => {
     const day = getAllByTestId(container, "day").find((day) =>
       queryByText(day, "Monday")
     );
-    // expect(getByText(day, "2 spots remaining")).toBeInTheDocument();
+    expect(getByText(day, "5 spots remaining")).toBeInTheDocument();
   });
 
   // test 3
   it("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
     // We want to start by finding an existing interview.
+    const { container } = render(<Application />);
+    await waitForElement(() => getByText(container, "Archie Cohen"));
+    const appointment = getAllByTestId(container, "appointment").find((appointment) => queryByText(appointment, "Archie Cohen"));
+    
     // With the existing interview we want to find the edit button.
+    fireEvent.click(getByAltText(appointment, "Edit"));
     // We change the name and save the interview.
+    fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
+      target: { value: "Lydia test" },
+    });
     // We don't want the spots to change for "Monday", since this is an edit.
     // Read the errors because sometimes they say that await cannot be outside of an async function.
+    //Click the "Save" button on that same appointment.
+    fireEvent.click(getByText(appointment, "Save"));
+    //Check that the element with the text "Saving" is displayed.
+    expect(getByText(appointment, "Saving")).toBeInTheDocument();
+    // Wait until the element with the text "Lydia Miller-Jones" is displayed.
+    await waitForElement(() => getByText(appointment, "Lydia test"));
+    //Check that the DayListItem with the text "Monday" also has the text "5 spots remaining".
+    const day = getAllByTestId(container, "day").find((day) =>
+      queryByText(day, "Monday")
+    );
+    expect(getByText(day, "4 spots remaining")).toBeInTheDocument();
+    expect(getByText(appointment, "Lydia test")).toBeInTheDocument();
   });
   // test 4
   it("shows the delete error when failing to delete an existing appointment", () => {
