@@ -68,8 +68,8 @@ export default function Appointment(props) {
       {mode === DELETING && <Status message="Deleting" />}
       {mode === CONFIRM && (
         <Confirm
-          message={props.message}
-          onCancel={() => back(SHOW)}
+          message="Are you sure you would like to delete?"
+          onCancel={back}
           onConfirm={deleting}
         />
       )}
@@ -85,7 +85,7 @@ export default function Appointment(props) {
       {mode === ERROR_SAVE &&  (
        <Error 
        message="Could not save this appointment."
-       onClose={() => back(SHOW)}
+       onClose={back}
       />
       )}
        {mode === ERROR_DELETE &&  (
