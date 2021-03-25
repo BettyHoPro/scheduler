@@ -10,11 +10,7 @@ React, JS, Axios, Webpack, Babel, WebSockets, Storybook, Webpack Dev Server, Jes
 
 ## Final Product Preview
 
-The page of desktop version - index
-[![Watch the video]](https://youtu.be/0BSDu80k4f0)
-[![Click to watch preview video](https://raw.github.com/GabLeRoux/WebMole/master/ressources/WebMole_Youtube_Video.png)](https://youtu.be/0BSDu80k4f0)
-
-!["Preview video"](https://github.com/BettyHoPro/scheduler/blob/master/public/docs/scheduler_preview.mp4)
+!["Preview video"](https://github.com/BettyHoPro/scheduler/blob/master/public/docs/scheduler_preview.gif)
 
 
 ## Setup
