@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function useApplicationData(props) {
-
   const [state, setState] = useState({
     day: "Monday",
     days: [],
     appointments: {},
   });
 
+  // book interview function
   function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -25,6 +25,7 @@ export default function useApplicationData(props) {
       .then(() => setState({ ...state, appointments, days }));
   }
 
+  // cancel interview function
   function cancelInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -47,10 +48,7 @@ export default function useApplicationData(props) {
     state.days.forEach(day => {
       let bookedSpot = 0;
       day.appointments.forEach( id => appointments[id].interview && bookedSpot ++ );
-
       days[day.id - 1].spots = 5 - bookedSpot;
-
-      console.log(`${day.name}: ${5 - bookedSpot} spots left.`);
     })
     return days;
   };

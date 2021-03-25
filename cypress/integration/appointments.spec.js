@@ -1,28 +1,3 @@
-// "should book an interview"
-// "should edit an interview"
-// "should cancel an interview"
-
-// Booking
-// Visits the root of our web server
-// Clicks on the "Add" button in the second appointment
-// Enters their name
-// Chooses an interviewer
-// Clicks the save button
-// Sees the booked appointment
-
-// Editing
-// Visits the root of our web server
-// Clicks the edit button for the existing appointment
-// Changes the name and interviewer
-// Clicks the save button
-// Sees the edit to the appointment
-
-// Canceling
-// Visits the root of our web server
-// Clicks the delete button for the existing appointment
-// Clicks the confirm button
-// Sees that the appointment slot is empty
-
 describe("Appointments", () => {
   beforeEach(() => {
     cy.request("GET", "/api/debug/reset");
@@ -32,6 +7,7 @@ describe("Appointments", () => {
     cy.contains("Monday");
   });
 
+  // Add feature testing
   it("should book an interview", () => {
     cy.get("[alt=Add]").first().click();
 
@@ -44,6 +20,7 @@ describe("Appointments", () => {
     cy.contains(".appointment__card--show", "Sylvia Palmer");
   });
 
+  // editing feature testing
   it("should edit an interview", () => {
     cy.get("[alt=Edit]").first().click({ force: true });
 
@@ -58,6 +35,7 @@ describe("Appointments", () => {
     cy.contains(".appointment__card--show", "Tori Malcolm");
   });
 
+  // Canceling feature testing
   it("should cancel an interview", () => {
     cy.get("[alt=Delete]").first().click({ force: true });
 

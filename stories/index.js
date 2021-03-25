@@ -1,10 +1,9 @@
 import React, { Fragment } from 'react'
-
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
-
 import "index.scss";
 
+// import components
 import Button from "components/Button";
 import DayListItem from "components/DayListItem";
 import DayList from "components/DayList";
@@ -32,26 +31,6 @@ const interviewers = [
   { id: 4, name: "Cohana Roy", avatar: "https://i.imgur.com/FK8V841.jpg" },
   { id: 5, name: "Sven Jones", avatar: "https://i.imgur.com/twYrpay.jpg" },
 ];
-
-// const appointments = [
-//   {
-//     id: 1,
-//     time: "12pm",
-//   },
-//   {
-//     id: 2,
-//     time: "1pm",
-//     interview: {
-//       student: "Lydia Miller-Jones",
-//       interviewer: {
-//         id: 1,
-//         name: "Sylvia Palmer",
-//         avatar: "https://i.imgur.com/LpaY82x.png",
-//       }
-//     }
-//   }
-// ];
-
 
 // ----- BTN ----//
 storiesOf("Button", module)
@@ -113,7 +92,6 @@ storiesOf("DayList", module)
   ));
 
 // ----- InterviewerListItem ----//
-
 storiesOf("InterviewerListItem", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }],
@@ -143,7 +121,6 @@ storiesOf("InterviewerListItem", module)
   ));
 
 // ----- InterviewerList ----//
-
 storiesOf("InterviewerList", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }],

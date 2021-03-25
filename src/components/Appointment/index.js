@@ -24,6 +24,7 @@ export default function Appointment(props) {
     props.interview ? SHOW : EMPTY
   );
 
+  // save function
   function save(name, interviewer) {
     if (name && interviewer) {
       const interview = {
@@ -37,6 +38,7 @@ export default function Appointment(props) {
     }
   }
 
+  // Delete function
   function deleting() {
     transition(DELETING, true); // true to switch to state, skip 
     props.cancelInterview(props.id)
@@ -91,7 +93,6 @@ export default function Appointment(props) {
        <Error 
        message="Could not cancel this appointment."
        onClose={back}
-       //onClose={() => back(SHOW)}
       />
       )}
     </article>
