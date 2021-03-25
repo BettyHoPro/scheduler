@@ -8,6 +8,14 @@ This api is the platform that provides users to add, edit, cancel appointment.
 
 React, JS, Axios, Webpack, Babel, WebSockets, Storybook, Webpack Dev Server, Jest, Testing Library, Cypress Testing.
 
+## Developer
+
+Betty Ho, Lighthouse Labs 
+
+## Designer
+
+Betty Ho, 
+Lighthouse labs
 ## Final Product Preview
 
 !["Preview video"](https://github.com/BettyHoPro/scheduler/blob/master/public/docs/scheduler_preview.gif)
