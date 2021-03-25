@@ -12,6 +12,7 @@ React, JS, Axios, Webpack, Babel, WebSockets, Storybook, Webpack Dev Server, Jes
 
 The page of desktop version - index
 [![Watch the video]](https://youtu.be/0BSDu80k4f0)
+[![Watch the video](https://raw.github.com/GabLeRoux/WebMole/master/ressources/WebMole_Youtube_Video.png)](https://youtu.be/0BSDu80k4f0)
 
 
 ## Setup
