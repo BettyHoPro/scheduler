@@ -1,5 +1,4 @@
 import React from "react";
-// import { action } from "@storybook/addon-actions";
 import "components/Appointment/styles.scss";
 import Header from "components/Appointment/Header";
 import Show from "components/Appointment/Show";
@@ -38,8 +37,8 @@ export default function Appointment(props) {
     }
   }
 
-  function deleting(name, interviewer) {
-    transition(DELETING);
+  function deleting() {
+    transition(DELETING, true); // true to switch to state, skip 
     props.cancelInterview(props.id)
     .then(() => transition(EMPTY))
     .catch(error => transition(ERROR_DELETE, true));
@@ -92,6 +91,7 @@ export default function Appointment(props) {
        <Error 
        message="Could not cancel this appointment."
        onClose={back}
+       //onClose={() => back(SHOW)}
       />
       )}
     </article>
