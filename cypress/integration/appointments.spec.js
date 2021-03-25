@@ -23,7 +23,7 @@
 // Clicks the confirm button
 // Sees that the appointment slot is empty
 
-describe("Application", () => {
+describe("Appointments", () => {
   beforeEach(() => {
     cy.request("GET", "/api/debug/reset");
 
